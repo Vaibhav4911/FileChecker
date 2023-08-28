@@ -1,59 +1,74 @@
-# File Info API Documentation
+# RapidFort: Campus Recruitment Drive
 
-Welcome to the File Info API documentation. This API allows you to upload files and retrieve information about them.
+RapidFort is a web application designed for a campus recruitment drive. It provides a REST API-based web server that allows users to upload files and retrieve information about those files. This README outlines the features, usage, and technical details of the RapidFort project.
 
-## Endpoints
+## Features
 
-### Upload a File
+- **File Upload:** Users can upload files via a user-friendly interface.
+- **File Information:** Users can get information about uploaded files, such as file name and size.
+- **Simple UI:** The web server provides a basic web page for user interaction.
+- **Docker Container:** The project includes Docker containerization for easy deployment.
+- **Kubernetes Support:** Kubernetes manifest files are provided to host the web server.
 
-Upload a file to the server.
+## Usage
 
-- **Endpoint:** `POST /upload`
-- **Description:** Uploads a file to the server.
-- **Request:**
-  - Method: POST
-  - Headers: `Content-Type: multipart/form-data`
-  - Body: File attachment
-- **Response:**
-  - JSON object with a `message` field indicating the success or error
+### Running the Application Locally
 
-#### Example Request
+1. Clone the repository from GitHub.
+2. Navigate to the project directory:
+3. Install the required Python packages:
+4. Run the Flask application:
+5. Access the application in your web browser at `http://127.0.0.1:5000/`.
 
-```bash
-curl -X POST -F "file=@path/to/file.txt" http://yourserver/upload
+### Uploading a File
 
-Example Response: 
-    {
-    "message": "File uploaded successfully"
-    }
+1. Access the main page by opening the application in a web browser.
+2. Click on the "Upload File" button.
+3. Select a file from your local system and click "Upload."
+4. You will receive a success message upon successful file upload.
 
-Get File Information:
-    -Retrieve information about an uploaded file.
+### Retrieving File Information
 
-Endpoint: POST /get_file_info
-Description: Retrieves information about an uploaded file.
-Request:
-Method: POST
-Headers: Content-Type: multipart/form-data
-Body: File attachment
-Response:
-JSON object containing file information
-Example Request
-bash
-Copy code
-curl -X POST -F "file=@path/to/file.txt" http://yourserver/get_file_info
-Example Response
-json
-Copy code
-{
-  "file_type": "ASCII text",
-  "file_name": "file.txt",
-  "file_size": "12345 bytes"
-}
-HTTP Methods: POST vs. GET
-We use the POST method for both uploading files and retrieving file information to adhere to REST principles. The POST method is used for creating resources, which aligns with uploading a file. It's also used for retrieving information when the request has a complex payload, as is the case here.
+1. Access the main page.
+2. Click on the "Get File Info" button.
+3. Select a file from your local system and click "Get Info."
+4. You will receive information about the file, including its name, size in bytes, and size in a human-readable format.
 
-For more simple read-only operations, GET could be used. However, to keep consistency and adhere to best practices, we use POST for both operations.
+## API Documentation
 
-Conclusion
-Thank you for using the File Info API. If you have any questions or feedback, please don't hesitate to contact us.
+### `GET /`
+
+- Displays the main page of the application.
+
+### `POST /upload`
+
+- Endpoint for file upload.
+- Accepts a file in the `file` parameter of the request.
+- Returns JSON response with upload status.
+
+### `POST /get_file_info`
+
+- Endpoint for retrieving file information.
+- Accepts a file in the `file` parameter of the request.
+- Returns JSON response with file information.
+
+## Technical Details
+
+### Project Structure
+
+- `app.py`: Main application file containing Flask routes and logic.
+- `templates/`: Directory containing HTML templates for the user interface.
+- `uploads/`: Directory where uploaded files are stored.
+- `Dockerfile`: Docker configuration for containerization.
+- `deployment.yaml` and `service.yaml`: Kubernetes manifest files for deployment.
+
+### Dependencies
+
+- Flask: A micro web framework for building web applications.
+- Docker: Containerization platform for packaging applications and their dependencies.
+
+## Conclusion
+
+RapidFort simplifies the process of file uploading and retrieval, making it an ideal solution for campus recruitment drives. With a user-friendly interface, REST API endpoints, and support for Docker and Kubernetes, RapidFort streamlines the file management process for users.
+
+For any inquiries or issues, please contact the project maintainers or submit an issue on the [GitHub repository](https://github.com/Vaibhav4911/FileChecker).

@@ -32,13 +32,21 @@ h1 {
 }
 
 .btn {
-    border: 2px solid gray;
-    color: gray;
-    background-color: white;
-    padding: 8px 20px;
+    border: 2px solid #555555;
+    color: #555555;
+    background-color: #ffffff;
+    padding: 10px 20px;
     border-radius: 8px;
     font-size: 16px;
     font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #555555;
+    color: #ffffff;
+    border-color: #555555;
 }
 
 .upload-btn-wrapper input[type=file] {
@@ -47,6 +55,7 @@ h1 {
     left: 0;
     top: 0;
     opacity: 0;
+    cursor: pointer;
 }
 
 .file-info {
