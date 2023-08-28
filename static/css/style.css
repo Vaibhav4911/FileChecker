@@ -2,7 +2,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #79acca;
     margin: 0;
     padding: 0;
     display: flex;
@@ -22,7 +22,18 @@ body {
 
 h1 {
     color: #333333;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+}
+
+.subheading {
+    font-size: 18px;
+    color: #666666;
+    margin-top: 0;
+}
+
+p {
+    color: #555555;
+    margin-top: 5px;
 }
 
 .upload-btn-wrapper {
